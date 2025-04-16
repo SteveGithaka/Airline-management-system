@@ -52,4 +52,6 @@ int main()
 	printf("\n\t4>> Exit");
 	printf("\n\n\tEnter your choice from above (1-4)->>\t-->");
 	scanf("%d",&menu_choice);
+
+	return 0;
 }
