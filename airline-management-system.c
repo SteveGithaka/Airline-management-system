@@ -53,5 +53,45 @@ int main()
 	printf("\n\n\tEnter your choice from above (1-4)->>\t-->");
 	scanf("%d",&menu_choice);
 
-	return 0;
+	switch(menu_choice)
+	{
+		case 1:
+			
+			reservationA();
+			break;
+			
+		case 2:
+			
+			reservationB();
+			break;
+
+        case 3: 
+        
+			viewdetails();
+			printf("\n\nPress any key to go to Main Menu..");
+			getch();
+			break;
+			
+		case 4:
+			
+			printf("\n\tYour Details Have Been Saved To A File(If Any)");
+			return(0);
+			
+		default:
+			
+			printf("\nInvalid choice");
+	}
+	
+	goto start;
+	return(0);
+	
+}
+
+void viewdetails(void)
+{
+	
+	system("cls");
+	
+	
+
 }
