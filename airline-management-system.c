@@ -254,7 +254,63 @@ void reservationB(void)
 		
 	}
 	
+	
 	fclose(fp2);
 	getch();
+	
+}
+
+float charge(int flight_num)
+{
+
+	if (flight_num==1001)
+	{
+		return(1500);
+	}
+	
+	if (flight_num==1002)
+	{
+		return(2500);
+	}
+	
+	if (flight_num==1003)
+	{
+		return(7000);
+	}
+	
+	if (flight_num==1004)
+	{
+		return(5500);
+	}
+	
+	if (flight_num==1005)
+	{
+		return(3500);
+	}
+	
+	if (flight_num==1006)
+	{
+		return(90000);
+	}
+	
+	if (flight_num==1007)
+	{
+		return(50000);
+	}
+	
+	if (flight_num==1008)
+	{
+		return(60000);
+	}
+	
+	if (flight_num==1009)
+	{
+		return(80000);
+	}
+	
+	if (flight_num==1010)
+	{
+		return(15000);
+	}
 	
 }
