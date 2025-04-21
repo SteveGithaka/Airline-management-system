@@ -265,52 +265,68 @@ float charge(int flight_num)
 
 	if (flight_num==1001)
 	{
-		return(1500);
+		return(30000);
 	}
 	
 	if (flight_num==1002)
 	{
-		return(2500);
+		return(40000);
 	}
 	
 	if (flight_num==1003)
 	{
-		return(7000);
+		return(50000);
 	}
 	
 	if (flight_num==1004)
 	{
-		return(5500);
+		return(60000);
 	}
 	
 	if (flight_num==1005)
 	{
-		return(3500);
+		return(70000);
 	}
 	
 	if (flight_num==1006)
 	{
-		return(90000);
+		return(80000);
 	}
 	
 	if (flight_num==1007)
 	{
-		return(50000);
+		return(90000);
 	}
 	
 	if (flight_num==1008)
 	{
-		return(60000);
+		return(10000);
 	}
 	
 	if (flight_num==1009)
 	{
-		return(80000);
+		return(110000);
 	}
 	
 	if (flight_num==1010)
 	{
-		return(15000);
+		return(120000);
 	}
+	
+}
+
+void printticket(char name[],int flight_num,float charges)
+{
+	
+	
+	system("cls");
+	printf("\n----------------------------------------------------------------------\n");
+	printf("\t                         TICKET");
+	printf("\n----------------------------------------------------------------------\n\n");
+	printf("Name\t\t\t\t\t:     %s",name);
+	printf("\nFlight Number\t\t\t\t:     %d",flight_num);
+	specificflight(flight_num);
+	printf("\nCharges\t\t\t\t\t:     %.2f",charges);
+	
 	
 }
