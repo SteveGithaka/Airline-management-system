@@ -98,6 +98,75 @@ int main()
                 printf("\nInvalid choice! Press any key to try again...");
                 getch();
         }
+        // Initialize users array with default user
+void initUsers() {
+    for (int i = 0; i < MAX_USERS; i++) {
+        users[i].isActive = false;
+    }
+    
+    // Add default admin account
+    strcpy(users[0].username, "admin");
+    strcpy(users[0].password, "ahas");
+    users[0].isActive = true;
+    userCount = 1;
+}
+
+// Function to register a new user
+bool registerUser() {
+    char username[MAX_USERNAME_LENGTH];
+    char password[MAX_PASSWORD_LENGTH];
+    char confirmPassword[MAX_PASSWORD_LENGTH];
+    
+    system("cls");
+    printf("\n----------------------------------------------------------------------\n");
+    printf("\t                     USER REGISTRATION");
+    printf("\n----------------------------------------------------------------------\n\n");
+    
+    printf("Enter username: ");
+    scanf("%s", username);
+    
+    // Check if username already exists
+    for (int i = 0; i < MAX_USERS; i++) {
+        if (users[i].isActive && strcmp(users[i].username, username) == 0) {
+            printf("\nUsername already exists! Please choose another username.\n");
+            printf("Press any key to continue...");
+            getch();
+            return false;
+        }
+    }
+    
+    printf("Enter password: ");
+    scanf("%s", password);
+    
+    printf("Confirm password: ");
+    scanf("%s", confirmPassword);
+    
+    // Check if passwords match
+    if (strcmp(password, confirmPassword) != 0) {
+        printf("\nPasswords do not match! Registration failed.\n");
+        printf("Press any key to continue...");
+        getch();
+        return false;
+    }
+    
+    // Add new user to array
+    if (userCount < MAX_USERS) {
+        strcpy(users[userCount].username, username);
+        strcpy(users[userCount].password, password);
+        users[userCount].isActive = true;
+        userCount++;
+        
+        printf("\nRegistration successful!\n");
+        printf("Press any key to continue...");
+        getch();
+        return true;
+    } else {
+        printf("\nUser database is full! Registration failed.\n");
+        printf("Press any key to continue...");
+        getch();
+        return false;
+    }
+}
     } while(authChoice != 3);
     
     return 0;
