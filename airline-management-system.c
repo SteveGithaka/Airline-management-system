@@ -98,7 +98,12 @@ int main()
                 printf("\nInvalid choice! Press any key to try again...");
                 getch();
         }
-        // Initialize users array with default user
+    } while(authChoice != 3);
+    
+    return 0;
+}
+
+// Initialize users array with default user
 void initUsers() {
     for (int i = 0; i < MAX_USERS; i++) {
         users[i].isActive = false;
@@ -167,7 +172,55 @@ bool registerUser() {
         return false;
     }
 }
-    } while(authChoice != 3);
+
+// Function to authenticate user
+int loginUser() {
+    char username[MAX_USERNAME_LENGTH];
+    char password[MAX_PASSWORD_LENGTH];
+    char c = ' ';
+    int i = 0;
+    int attempts = 0;
     
-    return 0;
+    while (attempts < 3) {
+        system("cls");
+        printf("\n----------------------------------------------------------------------\n");
+        printf("\t                         LOGIN");
+        printf("\n----------------------------------------------------------------------\n\n");
+        
+        printf("Enter username: ");
+        scanf("%s", username);
+        
+        printf("Enter password: ");
+        i = 0;
+        while(i < MAX_PASSWORD_LENGTH - 1) {
+            password[i] = getch();
+            c = password[i];
+            if(c == 13) break; // Enter key
+            else printf("*");
+            i++;
+        }
+        password[i] = '\0';
+        
+        // Check credentials
+        for (int j = 0; j < MAX_USERS; j++) {
+            if (users[j].isActive && 
+                strcmp(users[j].username, username) == 0 && 
+                strcmp(users[j].password, password) == 0) {
+                printf("\n\nLogin successful! Welcome, %s!\n", username);
+                printf("Press any key to continue...");
+                getch();
+                return j; // Return user index
+            }
+        }
+        
+        attempts++;
+        printf("\n\nInvalid username or password. %d attempts remaining.\n", 3 - attempts);
+        printf("Press any key to try again...");
+        getch();
+    }
+    
+    printf("\nToo many failed attempts. Returning to main menu.\n");
+    printf("Press any key to continue...");
+    getch();
+    return -1; // Login failed
 }
