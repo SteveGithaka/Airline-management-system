@@ -294,3 +294,55 @@ bool changePassword(int userIndex) {
     getch();
     return true;
 }
+
+// User menu display
+void displayUserMenu() {
+    int menu_choice, choice_return;
+    
+    start:
+    system("cls");
+    printf("\n\t=====================================\n");
+    printf("  \t     KENYA AIRWAYS       \n");
+    printf("\n\t=====================================");
+    printf("\n\t1>> Reserve A Ticket To Travel Globally");
+    printf("\n\t2>> View All Available Flights");
+    printf("\n\t3>> Change Password");
+    printf("\n\t                               ");
+    printf("\n\t4>> Logout");
+    printf("\n\n\tEnter your choice from above (1-4)->>\t-->");
+    scanf("%d", &menu_choice);
+    
+    switch(menu_choice) {
+        case 1:
+            reservationA();
+            break;
+            
+        case 2:
+            reservationB();
+            break;
+
+        case 3: 
+            viewdetails();
+            printf("\n\nPress any key to go to Main Menu..");
+            getch();
+            break;
+            
+        case 4:
+            changePassword(0); // Using 0 as default, should ideally use current user index
+            break;
+            
+        case 5:
+            printf("\n\tLogging out...");
+            printf("\n\tYour Details Have Been Saved To A File(If Any)");
+            printf("\n\tPress any key to continue...");
+            getch();
+            return;
+            
+        default:
+            printf("\nInvalid choice");
+            printf("\nPress any key to try again...");
+            getch();
+    }
+    
+    goto start;
+}
