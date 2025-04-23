@@ -411,3 +411,60 @@ void viewdetails(void)
     printf("\n1009\t\t Flight 09\t\t\t Kenya To Nigeria      |\t\t\tKsh 110000 \t\t 04 Apr 2025\t\t 9hrs");
     printf("\n1010\t\t Flight 10\t\t\t Kenya To South Africa |\t\t\tKsh 120000 \t\t 02 Apr 2025\t\t 10hrs");
 }
+void reservationA(void)
+{
+    char confirm;
+    int i = 0;
+    float charges;
+    
+    pd passdetails;
+    FILE *fp1;
+    fp1 = fopen("Kenya.txt", "a");
+    system("cls");
+    
+    printf("\nEnter Your Name :> ");
+    fflush(stdin);
+    gets(passdetails.name);
+    
+    printf("\n\n>>Press Enter To View Available flights >> ");
+    getch();
+    system("cls");
+    viewdetails();
+    
+    printf("\n\nEnter flight number :> ");
+    start1:
+    scanf("%d", &passdetails.flight_num);
+    
+    if(passdetails.flight_num >= 1001 && passdetails.flight_num <= 1010) {
+        charges = charge(passdetails.flight_num);
+        printticket(passdetails.name, passdetails.flight_num, charges);
+    } else {
+        printf("\nInvalid Flight Number!");
+        printf("\n Enter again --> ");
+        goto start1;
+    }
+
+    printf("\n\nConfirm Ticket ('y' for yes/'n' for no) :>");
+    start:
+    scanf(" %c", &confirm);
+    
+    if(confirm == 'y') {
+        fprintf(fp1, "%s\t\t%d\t\t%.2f\n", &passdetails.name, passdetails.flight_num, charges);
+        printf("\n****************************************");
+        printf("\n RESERVATION DONE.......HAPPY JOURNEY :)");
+        printf("\n****************************************\n");
+        printf("\nPress any key to go back to Main menu");
+    } else {
+        if(confirm == 'n') {
+            printf("\nSorry to see you go :( ");
+            printf("\nReservation cancelled...");
+            printf("\nPress any key to go back to  Main menu!");
+        } else {
+            printf("\nInvalid choice entered! Enter again -----> ");
+            goto start;
+        }
+    }
+    
+    fclose(fp1);
+    getch();
+}
