@@ -346,3 +346,68 @@ void displayUserMenu() {
     
     goto start;
 }
+void login() {
+    int a = 0, i = 0;
+    char uname[10], c = ' ';
+    char pword[10], code[10];
+    char user[10];
+    char pass[10];
+    
+    do {
+        printf("\n  =======================  LOGIN FORM  =======================\n  ");
+        printf(" \n                       ENTER USERNAME:-");
+        scanf("%s", &uname);
+        printf(" \n                       ENTER PASSWORD:-");
+        
+        while(i < 10) {
+            pword[i] = getch();
+            c = pword[i];
+            if(c == 13) break;
+            else printf("*");
+            i++;
+        }
+        
+        pword[i] = '\0';
+        i = 0;
+        
+        if(strcmp(uname, "admin") == 0 && strcmp(pword, "ahas") == 0) {
+            printf("  \n\n\n       WELCOME TO Kenya Airways,The pride of Africa !! ");
+            printf("\n\n\tYOUR LOGIN IS SUCCESSFUL :)");
+            printf("\n\n\n\tPress any key to continue...");
+            getch();
+            break;
+        } else {
+            printf("\n\t        SORRY !!!!  LOGIN IS UNSUCESSFUL");
+            printf("\n\n\t        Enter the valid Username and Password...");
+            a++;
+            getch();
+            system("cls");
+        }
+    } while(a <= 2);
+    
+    if (a > 2) {
+        printf("\nSorry you have entered the wrong username and password for four times!!!");
+        getch();
+    }
+    
+    system("cls");
+}
+
+void viewdetails(void)
+{
+    system("cls");
+    
+    printf("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+    printf("\nFlight.No\t Name\t\t\t\t Destinations          |\t\t\t Charges \t\t Date     \t\t  Duration\n");
+    printf("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+    printf("\n1001\t\t Flight 01\t\t\t Kenya To Tanzania     |\t\t\tKsh 30000  \t\t 01 Apr 2025\t\t 2hrs ");
+    printf("\n1002\t\t Flight 02\t\t\t Kenya To Uganda       |\t\t\tKsh 40000  \t\t 02 Apr 2025\t\t 2hrs ");
+    printf("\n1003\t\t Flight 03\t\t\t Kenya To Botswana     |\t\t\tKsh 50000  \t\t 03 Apr 2025\t\t 4hrs ");
+    printf("\n1004\t\t Flight 04\t\t\t Kenya To Algeria      |\t\t\tKsh 60000  \t\t 04 Apr 2025\t\t 5hrs ");
+    printf("\n1005\t\t Flight 05\t\t\t Kenya To Angola       |\t\t\tKsh 70000  \t\t 05 Apr 2025\t\t 6hrs ");
+    printf("\n1006\t\t Flight 06\t\t\t Kenya To Egypt        |\t\t\tKsh 80000  \t\t 06 Apr 2025\t\t 6hrs ");
+    printf("\n1007\t\t Flight 07\t\t\t Kenya To Malawi       |\t\t\tKsh 90000  \t\t 04 Apr 2025\t\t 7hrs ");
+    printf("\n1008\t\t Flight 08\t\t\t Kenya To South Sudan  |\t\t\tKsh 100000 \t\t 08 Apr 2025\t\t 8hrs "); 
+    printf("\n1009\t\t Flight 09\t\t\t Kenya To Nigeria      |\t\t\tKsh 110000 \t\t 04 Apr 2025\t\t 9hrs");
+    printf("\n1010\t\t Flight 10\t\t\t Kenya To South Africa |\t\t\tKsh 120000 \t\t 02 Apr 2025\t\t 10hrs");
+}
