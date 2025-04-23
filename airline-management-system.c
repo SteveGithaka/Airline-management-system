@@ -224,3 +224,73 @@ int loginUser() {
     getch();
     return -1; // Login failed
 }
+
+// Function to change password
+bool changePassword(int userIndex) {
+    char currentPassword[MAX_PASSWORD_LENGTH];
+    char newPassword[MAX_PASSWORD_LENGTH];
+    char confirmPassword[MAX_PASSWORD_LENGTH];
+    char c = ' ';
+    int i = 0;
+    
+    system("cls");
+    printf("\n----------------------------------------------------------------------\n");
+    printf("\t                     CHANGE PASSWORD");
+    printf("\n----------------------------------------------------------------------\n\n");
+    
+    printf("Enter current password: ");
+    i = 0;
+    while(i < MAX_PASSWORD_LENGTH - 1) {
+        currentPassword[i] = getch();
+        c = currentPassword[i];
+        if(c == 13) break; // Enter key
+        else printf("*");
+        i++;
+    }
+    currentPassword[i] = '\0';
+    
+    // Verify current password
+    if (strcmp(users[userIndex].password, currentPassword) != 0) {
+        printf("\n\nIncorrect current password!\n");
+        printf("Press any key to continue...");
+        getch();
+        return false;
+    }
+    
+    printf("\nEnter new password: ");
+    i = 0;
+    while(i < MAX_PASSWORD_LENGTH - 1) {
+        newPassword[i] = getch();
+        c = newPassword[i];
+        if(c == 13) break; // Enter key
+        else printf("*");
+        i++;
+    }
+    newPassword[i] = '\0';
+    
+    printf("\nConfirm new password: ");
+    i = 0;
+    while(i < MAX_PASSWORD_LENGTH - 1) {
+        confirmPassword[i] = getch();
+        c = confirmPassword[i];
+        if(c == 13) break; // Enter key
+        else printf("*");
+        i++;
+    }
+    confirmPassword[i] = '\0';
+    
+    // Check if new passwords match
+    if (strcmp(newPassword, confirmPassword) != 0) {
+        printf("\n\nNew passwords do not match!\n");
+        printf("Press any key to continue...");
+        getch();
+        return false;
+    }
+    
+    // Update password
+    strcpy(users[userIndex].password, newPassword);
+    printf("\n\nPassword changed successfully!\n");
+    printf("Press any key to continue...");
+    getch();
+    return true;
+}
