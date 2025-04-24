@@ -560,3 +560,65 @@ void printticket(char name[], int flight_num, float charges)
     printf("\n\nPress any key to continue...");
     getch();
 }
+void specificflight(int flight_num)
+{
+    if (flight_num == 1001) {
+        printf("\nFlight\t\t\t\t\t:     Flight 01 ");
+        printf("\nDestination\t\t\t\t:     Kenya To Tanzania");
+        printf("\nDeparture Date and time\t\t\t:     03/04/2025-9:00am(EAT) ");
+    }
+    
+    if (flight_num == 1002) {
+        printf("\nFlight\t\t\t\t\t:     Flight 02 ");
+        printf("\nDestination\t\t\t\t:     Kenya to Uganda ");
+        printf("\nDeparture Date and time\t\t\t:     05/04/2025-12:00pm(EAT)");
+    }
+    
+    if (flight_num == 1003) {
+        printf("\nFlight\t\t\t\t\t:     Flight 03 ");
+        printf("\nDestination\t\t\t\t:     Kenya To Botswana");
+        printf("\nDeparture Date and time\t\t\t:     06/04/2025-8:00am(EAT)");
+    }
+    
+    if (flight_num == 1004) {
+        printf("\nFlight\t\t\t\t\t:     Flight 04");
+        printf("\nDestination\t\t\t\t:     Kenya To Algeria");
+        printf("\nDeparture Date and time\t\t\t:     07/04/2025-11:00am(EAT) ");
+    }
+    
+    if (flight_num == 1005) {
+        printf("\nFlight\t\t\t\t\t:     Flight 05 ");
+        printf("\nDestination\t\t\t\t:     Kenya To Angola");
+        printf("\nDeparture Date and time\t\t\t:     08/04/2025-7:00am(EAT)");
+    }
+    
+    if (flight_num == 1006) {
+        printf("\nFlight\t\t\t\t\t:     Flight 06");
+        printf("\nDestination\t\t\t\t:     Kenya To Egypt");
+        printf("\nDeparture Date and time\t\t\t:     09/04/2022-9:30am(EAT) ");
+    }
+    
+    if (flight_num == 1007) {
+        printf("\nFlight\t\t\t\t\t:     Flight 07");
+        printf("\nDestination\t\t\t\t:     Kenya To Malawi");
+        printf("\nDeparture Date and time\t\t\t:     10/04/2025-1:00pm(EAT)");
+    }
+    
+    if (flight_num == 1008) {
+        printf("\nFlight\t\t\t\t\t:     Flight 08 ");
+        printf("\n Destination\t\t\t\t:     Kenya To South Sudan ");
+        printf("\nDeparture Date and time\t\t\t:     11/04/2025-4:00pm(EAT)");
+    }
+    
+    if (flight_num == 1009) {
+        printf("\nFlight\t\t\t\t\t:     Flight 09");
+        printf("\nDestination\t\t\t\t:     Kenya To Nigeria");
+        printf("\nDeparture Date and time\t\t\t:     08/04/2025-3:35pm(EAT)");
+    }
+    
+    if (flight_num == 1010) {
+        printf("\nFlight\t\t\t\t\t:     Flight 10");
+        printf("\nDestination\t\t\t\t:     Kenya To South Africa");
+        printf("\nDeparture Date and time\t\t\t:     06/04/2025-1:15pm(EAT)");
+    }
+}
