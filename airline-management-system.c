@@ -546,3 +546,17 @@ float charge(int flight_num)
     if (flight_num == 1010)
         return(120000);
 }
+
+void printticket(char name[], int flight_num, float charges)
+{
+    system("cls");
+    printf("\n----------------------------------------------------------------------\n");
+    printf("\t                         TICKET");
+    printf("\n----------------------------------------------------------------------\n\n");
+    printf("Name\t\t\t\t\t:     %s", name);
+    printf("\nFlight Number\t\t\t\t:     %d", flight_num);
+    specificflight(flight_num);
+    printf("\nCharges\t\t\t\t\t:     %.2f", charges);
+    printf("\n\nPress any key to continue...");
+    getch();
+}
