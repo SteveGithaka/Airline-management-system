@@ -468,3 +468,81 @@ void reservationA(void)
     fclose(fp1);
     getch();
 }
+void reservationB(void)
+{
+    char confirm;
+    int i = 0;
+    float charges;
+    pd passdetails;
+    FILE *fp2;
+    fp2 = fopen("World.txt", "a");
+    system("cls");
+
+    printf("\nEnter Your Name:> ");
+    fflush(stdin);
+    gets(passdetails.name);
+    printf("\n\n>>Press Enter To View Available Flights ->> ");
+    getch();
+    system("cls");
+    viewdetails();
+    printf("\n\nEnter flight number:> ");
+    start1:
+    scanf("%d", &passdetails.flight_num);
+    
+    if(passdetails.flight_num >= 1001 && passdetails.flight_num <= 1010) {
+        charges = charge(passdetails.flight_num);
+        printticket(passdetails.name, passdetails.flight_num, charges);
+    } else {
+        printf("\nInvalid Flight Number!");
+        printf(" Enter again --> ");
+        goto start1;
+    }
+    
+    printf("\n\nConfirm Ticket (y/n):>");
+    start:
+    scanf(" %c", &confirm);
+    
+    if(confirm == 'y') {
+        fprintf(fp2, "%s\t\t%d\t\t%.2f\n", &passdetails.name, passdetails.flight_num, charges);
+        printf("\n*********************************************");
+        printf("\n RESERVATION SUCCESSFUL......HAPPY JOURNEY :)");
+        printf("\n*********************************************");
+        printf("\n\nPress any key to go back to Main menu");
+    } else {
+        if(confirm == 'n') {
+            printf("\n\nSorry To See You Go :(");
+            printf("\nReservation Not Done!");
+            printf("\n\nPress any key to go back to  Main menu!");
+        } else {
+            printf("\nInvalid choice entered! \nEnter again-----> ");
+            goto start;
+        }
+    }
+    
+    fclose(fp2);
+    getch();
+}
+
+float charge(int flight_num)
+{
+    if (flight_num == 1001)
+        return(30000);
+    if (flight_num == 1002)
+        return(40000);
+    if (flight_num == 1003)
+        return(50000);
+    if (flight_num == 1004)
+        return(60000);
+    if (flight_num == 1005)
+        return(70000);
+    if (flight_num == 1006)
+        return(80000);
+    if (flight_num == 1007)
+        return(90000);
+    if (flight_num == 1008)
+        return(100000);
+    if (flight_num == 1009)
+        return(110000);
+    if (flight_num == 1010)
+        return(120000);
+}
